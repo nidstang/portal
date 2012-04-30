@@ -67,48 +67,52 @@ if(isset($_GET['web'])){
 	
 		//comentarios
         $("#nuevoComentario").live("click", function(){
-        	
-	      var data = "";
-	      $.ajax({
-	        url: "core/nuevo-coment.php",
-	        type: "POST",
-	        data: "texto="+$("#comentario").val()+
-	        "&id_tutorial="+$("#tutorialComent").val()+
-	        "&user="+$("#nombre").val(),
-	        async: true,
-	        dataType: "json",
-	        beforeSend: function(){
-                $("#loading").fadeIn(1);
-              },
-              complete: function(){
-                $("#loading").fadeOut(1);
-              },
-	        success: function(response){
-	          if(response.val){ 
-	          	$("#comentarios").toggle(500);
-	            //$("#success, #error").hide();
-	            //$("#success").text(response.mensaje).fadeIn();
+       	  if($("#nombre").val() != "" && $("#comentario").val() != ""){
+		      var data = "";
+		      $.ajax({
+		        url: "core/nuevo-coment.php",
+		        type: "POST",
+		        data: "texto="+$("#comentario").val()+
+		        "&id_tutorial="+$("#tutorialComent").val()+
+		        "&user="+$("#nombre").val(),
+		        async: true,
+		        dataType: "json",
+		        beforeSend: function(){
+	                $("#loading").fadeIn(1);
+	              },
+	              complete: function(){
+	                $("#loading").fadeOut(1);
+	              },
+		        success: function(response){
+		          if(response.val){ 
+		          	$("#comentarios").toggle(500);
+		            //$("#success, #error").hide();
+		            //$("#success").text(response.mensaje).fadeIn();
 
-	            data += "<div class='comentario center'><div class='message'>";
-	            data += "<span class='label'>Usuario: "+response.usuario+". Fecha: "+response.created+"</span>";
-	            data += response.texto;
-	            data += "</div></div>";
+		            data += "<div class='comentario center'><div class='message'>";
+		            data += "<span class='label'>Usuario: "+response.usuario+". Fecha: "+response.created+"</span>";
+		            data += response.texto;
+		            data += "</div></div>";
 
-	            $("#comentariosView").before(data);
-	            $("#notComment").hide();
-	            $("#comentario").val("");
-	            $("#nombre").val("");
-	            $(".success").fadeIn(500).append("Comentario enviado");
-	             
-	          }else{
-	            /*$("#success, #error").hide();
-	            $("#error").text(response.mensaje).fadeIn();*/
-	            alert(response.mensaje);
-	          }
-	        }
+		            $("#comentariosView").before(data);
+		            $("#notComment").hide();
+		            $("#comentario").val("");
+		            $("#nombre").val("");
+		            $(".success").fadeIn(500).append("Comentario enviado");
+		             
+		          }else{
+		            /*$("#success, #error").hide();
+		            $("#error").text(response.mensaje).fadeIn();*/
+		            alert(response.mensaje);
+		          }
+		        }
 
-	      });
-	      return false;
+		      });
+		      return false;
+		    }
+		    else{
+		    	alert("Debes rellenar todos los campos");
+		    }
         });
 
 	</script>
