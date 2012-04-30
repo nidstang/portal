@@ -1,8 +1,5 @@
-<section id="buscador" class="box">
-  <p>Hemos preparado un buscador (con la tecnología de Google) para que encuentres tutoriales de forma eficiente y filtrada en toda la web</p>
-  <a href="#" class="button mediano azulWeb menu" id="visionCompleta">
-    <span>Visión completa</span>
-  </a>
+<section id="buscador" class="box" style="min-height:600px">
+  <p>Hemos preparado un buscador (con la tecnología de Google) para que encuentres tutoriales de forma eficiente y filtrada en internet</p>
 	<!--<input type="text" placeholder="Busca tutoriales" class="search" />-->
 	<div id="cse" style="width: 100%;">Cargando...</div>
 <script src="http://www.google.es/jsapi" type="text/javascript"></script>

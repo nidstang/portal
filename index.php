@@ -18,11 +18,6 @@ if(isset($_GET['web'])){
 	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/twitter.js" type="text/javascript" charset="utf-8"></script>
 
-    <script type="text/javascript" src="js/jquery.pngFix.pack.js"></script>
-
-    <script type="text/javascript" src="js/jquery.fancybox-1.0.0.js"></script>
-
-    <script type="text/javascript" src="js/swfobject.js"></script>
 
 
 	<script type="text/javascript">
@@ -55,22 +50,6 @@ if(isset($_GET['web'])){
 				});
 				$("#info").hide();
 			});
-
-			$(".modal").fancybox({
-
-                overlayShow: true,
-
-                frameWidth:640,
-
-                frameHeight:360
-
-            });
-
-            $("#visionCompleta").on("click", function(event){
-            	event.preventDefault();
-            	$("#title").toggle(1000);
-            	$(".box").css('margin-top', '20px');
-            });
 
             $("#recoger a").on("click", function(event){
         		localStorage.setItem('local', 'recogido');
