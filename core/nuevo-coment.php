@@ -1,4 +1,5 @@
 <?php
+sleep(3);
 require_once("models/Comentario_model.php");
 $coment = new Comentario();
 

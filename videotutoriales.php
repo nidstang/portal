@@ -35,6 +35,7 @@ $tutorialObject->getById($_GET['id']);
 					<span>Enviar</span>
 				</button>
 			</div>
+			<div id="loading" class="center"></div>
 		</div>
 		<hr>
 		<div id="comentariosView">

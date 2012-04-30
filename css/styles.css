@@ -587,3 +587,11 @@ rgba(0, 0, 0, 0.1)
 rgba(0, 0, 0, 0.25);
 padding:10px;
 }
+
+#loading
+{
+	background: url("../img/loader.gif");
+	display: none;
+	height:11px;
+	width:43px;
+}

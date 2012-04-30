@@ -77,6 +77,12 @@ if(isset($_GET['web'])){
 	        "&user="+$("#nombre").val(),
 	        async: true,
 	        dataType: "json",
+	        beforeSend: function(){
+                $("#loading").fadeIn(1);
+              },
+              complete: function(){
+                $("#loading").fadeOut(1);
+              },
 	        success: function(response){
 	          if(response.val){ 
 	          	$("#comentarios").toggle(500);
@@ -92,7 +98,7 @@ if(isset($_GET['web'])){
 	            $("#notComment").hide();
 	            $("#comentario").val("");
 	            $("#nombre").val("");
-	            $(".success").fadeIn(500).append("Comentario agregado");
+	            $(".success").fadeIn(500).append("Comentario enviado");
 	             
 	          }else{
 	            /*$("#success, #error").hide();
