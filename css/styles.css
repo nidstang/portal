@@ -547,3 +547,43 @@ textarea{
 	resize:none;
 	width: 719px;
 }
+
+.success
+{
+	background-color: 
+#57A957;
+background-repeat: repeat-x;
+background-image: -khtml-gradient(linear, left top, left bottom, from(
+#62C462), to(
+#57A957));
+background-image: -moz-linear-gradient(top, 
+#62C462, 
+#57A957);
+background-image: -ms-linear-gradient(top, 
+#62C462, 
+#57A957);
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, 
+#62C462), color-stop(100%, 
+#57A957));
+background-image: -webkit-linear-gradient(top, 
+#62C462, 
+#57A957);
+background-image: -o-linear-gradient(top, 
+#62C462, 
+#57A957);
+background-image: linear-gradient(top, 
+#62C462, 
+#57A957);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#62c462', endColorstr='#57a957', GradientType=0);
+text-shadow: 0 -1px 0 
+rgba(0, 0, 0, 0.25);
+border-color: 
+#57A957 
+#57A957 
+#3D773D;
+border-color: 
+rgba(0, 0, 0, 0.1) 
+rgba(0, 0, 0, 0.1) 
+rgba(0, 0, 0, 0.25);
+padding:10px;
+}

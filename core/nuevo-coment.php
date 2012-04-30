@@ -1,14 +1,13 @@
 <?php
 require_once("models/Comentario_model.php");
-require_once("vendor/Session.php");
 $coment = new Comentario();
-$sesion = new Session();
 
 if(!empty($_POST['texto'])){
 	$newComent = array(
 		'texto' => strip_tags($_POST['texto']),
-		'id_usuario' => $sesion->userdata('id'),
-		'id_post' => $_POST['id_post']
+		'id_tutorial' => $_POST['id_tutorial'],
+		'usuario' => $_POST['user']
+
 	);
 
 	$coment->set($newComent);
@@ -17,7 +16,7 @@ if(!empty($_POST['texto'])){
 				"val" => true, 
 				"mensaje" => $coment->mensaje, 
 				"texto" => $newComent['texto'], 
-				"usuario" => $sesion->userdata('nombre'),
+				"usuario" => $newComent['usuario'],
 				"created" => date("Y-m-d H:i:s")
 				)
 			);
