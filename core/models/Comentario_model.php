@@ -14,7 +14,7 @@ class Comentario extends Db_Abstract_Model
 
 	public function get($id_tutorial=''){
 		if($id_tutorial != ''){
-			$this->query = "SELECT * FROM comentario WHERE id_tutorial = '$id_tutorial' ORDER BY created asc";
+			$this->query = "SELECT * FROM comentario WHERE id_tutorial = '$id_tutorial' ORDER BY created desc";
 			$this->get_results_from_query();
 		}
 		if($this->num>0){
