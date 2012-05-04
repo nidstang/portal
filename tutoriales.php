@@ -41,7 +41,7 @@ $helper = new Utiles();
 			echo '<div class="mask">';
 	        echo '<h2>'.$row['titulo'].'</h2>';
 	        echo '<p>'.$row['descripcion'].'</p>';
-	        echo '<a href="index.php?web=videotuto&id='.$row['id_tutorial'].'&cat='.$_GET['cat'].'" class="button mediano verde menu">';
+	        echo '<a href="'.$uri->path("videotuto/".$_GET['cat']."/".$row['id_tutorial']."").'" class="button mediano verde menu">';
 			echo '<span>Ver tutorial</span>';
 			echo '</a>';
 	        echo '</div></div>';

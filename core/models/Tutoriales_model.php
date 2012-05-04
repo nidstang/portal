@@ -42,6 +42,9 @@ class Tutorial extends Db_Abstract_Model
 			foreach($this->rows[0] as $propiedad => $valor):
 				$this->$propiedad = $valor;
 			endforeach;
+			return true;
+		}else{
+			return false;
 		}
 	}
 

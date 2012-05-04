@@ -1,4 +1,7 @@
-<?php 
+<?php
+require_once("core/vendor/Uri.php");
+$uri = new Uri();
+
 if(isset($_GET['web'])){
 	$menu = $_GET['web'];
 }else{
@@ -11,12 +14,12 @@ if(isset($_GET['web'])){
 <head>
 	<title>DPS Diseño</title>
 	<meta charset="utf-8">	
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/styles.css">
-	<link rel="stylesheet" type="text/css" href="css/fancy.css"/>
+	<link rel="stylesheet" href="/css/reset.css">
+	<link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="/css/fancy.css"/>
 
-	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/twitter.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/twitter.js" type="text/javascript" charset="utf-8"></script>
 
 
 
@@ -159,19 +162,19 @@ if(isset($_GET['web'])){
 				<nav id="menu">
 					<ul>
 						<li class="">
-						<a href="index.php?web=home" 
+						<a href="<?php echo $uri->path('home') ?>" 
 						class="buttonmenu mediano naranja menu <?php echo ($menu == 'home')? 'active' : '' ?>">
 							<span>Noticias</span>
 						</a>
 					</li>
 					<li>
-						<a href="index.php?web=tutoriales" 
+						<a href="<?php echo $uri->path('tutoriales') ?>" 
 						class="buttonmenu mediano naranja menu <?php echo ($menu == 'tutoriales' || $menu == 'ver-tutoriales')? 'active' : '' ?>">
 							<span>Tutoriales</span>
 						</a>
 					</li>
 					<li>
-						<a href="index.php?web=buscador" 
+						<a href="<?php echo $uri->path('buscador') ?>"
 						class="buttonmenu mediano naranja menu <?php echo ($menu == 'buscador')? 'active' : '' ?>">
 							<span>Buscador</span>
 						</a>
@@ -183,7 +186,7 @@ if(isset($_GET['web'])){
 						</a>
 					</li>
 					<li>
-						<a href="index.php?web=trucos" 
+						<a href="<?php echo $uri->path('trucos') ?>" 
 						class="buttonmenu mediano naranja menu <?php echo ($menu == 'trucos')? 'active' : '' ?>">
 							<span>Trucos</span>
 						</a>

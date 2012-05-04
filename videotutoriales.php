@@ -7,12 +7,20 @@ $helper = new Utiles();
 $tutorialObject = new Tutorial();
 $comentarioObject = new Comentario();
 
-$cat = $helper->getNombreCategoria($_GET['cat']);
-
-$tutorialObject->getById($_GET['id']);
-
 ?>
-<section id="coments" class="box3">
+<section id="coments" class="box" style="width:760px">
+	<?php 
+		$cat = $helper->getNombreCategoria($_GET['cat']);
+
+		if(!$tutorialObject->getById($_GET['id'])){
+			echo '<strong>Tutorial not found</strong>';
+			echo '<div><a href="'.$uri->path("ver-tutoriales/".$_GET['cat']).'"';
+			echo '" class="button pequeno verde menu" style="margin-top:10px">';
+			echo '<span>Volver a '.$cat.'</span>';
+			echo '</a></div>';
+		}else{
+	?>
+
 	<iframe width="760" height="400" src="<?php echo $helper->getUrlEmbebed($tutorialObject->video) ?>" frameborder="0" allowfullscreen>
 	</iframe>
 	<div>
@@ -55,3 +63,5 @@ $tutorialObject->getById($_GET['id']);
 			?>
 		</div>
 	</fieldset>
+<?php } ?>
+</section>

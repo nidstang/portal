@@ -18,7 +18,8 @@ $helper = new Utiles();
 				echo '</article>';
 				echo '<article>';
 			}
-			echo '<a href="index.php?web=ver-tutoriales&cat='.$row['nombre'].'"><img src="img/'.$row['image'].'.png" class="thumbnail nothing"/></a>';
+			echo '<a href="'.$uri->path("ver-tutoriales/".$row['nombre']."").'">';
+			echo '<img src="/img/'.$row['image'].'.png" class="thumbnail nothing"/></a>';
 			$count++;
 		}
 	?>

@@ -1,0 +1,13 @@
+AddDefaultCharset UTF-8
+RewriteEngine on
+RewriteBase /
+
+
+RewriteRule ^web/([a-z_-]+)/([a-z]+)/([0-9]+) index.php?web=$1&cat=$2&id=$3
+RewriteRule ^web/([a-z_-]+)/([a-z]+)/([0-9]+)/ index.php?web=$1&cat=$2&id=$3
+
+RewriteRule ^web/([a-z_-]+)/([a-z]+) index.php?web=$1&cat=$2
+RewriteRule ^web/([a-z_-]+)/([a-z]+)/ index.php?web=$1&cat=$2
+
+RewriteRule ^web/([a-z_-]+) index.php?web=$1
+RewriteRule ^web/([a-z_-]+)/ index.php?web=$1
