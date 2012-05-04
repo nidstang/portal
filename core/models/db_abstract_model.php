@@ -29,7 +29,9 @@ abstract class Db_Abstract_Model
 		$this->open_connection();
 		if(!$this->conect->query($this->query)){
 			echo $this->conect->error;
-			die();
+			return false;
+		}else{
+			return true;
 		}
 		$this->close_connection();
 	}

@@ -6,6 +6,7 @@ class Comentario extends Db_Abstract_Model
 	public $texto;
 	public $id_tutorial;
 	public $created;
+	public $email;
 	public $mensaje = "Listo!";
 
 	public function __construct(){
@@ -43,12 +44,17 @@ class Comentario extends Db_Abstract_Model
 		endforeach;
 
 		$this->query =
-			"INSERT INTO comentario (texto,id_tutorial,usuario)
-		 	VAlUES ('$texto', '$id_tutorial', '$usuario')";
+			"INSERT INTO comentario (texto,id_tutorial,usuario,email)
+		 	VAlUES ('$texto', '$id_tutorial', '$usuario', '$email')";
 
-		$this->execute_query();
-		$this->mensaje = "Agregado nuevo comentario!";
+		if($this->execute_query()){
+			$this->mensaje = "¡Comentario enviado con exito!";
 
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 
 	public function delete($id_user=''){
