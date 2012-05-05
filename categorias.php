@@ -18,6 +18,9 @@ $helper = new Utiles();
 				echo '</article>';
 				echo '<article>';
 			}
+			//echo '<div class="button azulWeb" style="color:white">';
+			//echo $row['tutoriales'];
+			//echo '</div>';
 			echo '<a href="'.$uri->path("ver-tutoriales/".$row['nombre']."").'">';
 			echo '<img src="/img/'.$row['image'].'.png" class="thumbnail nothing"/></a>';
 			$count++;

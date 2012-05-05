@@ -68,15 +68,21 @@ if(isset($_GET['web'])){
 
 		});
 	
+		$("#nuevoComentario").live("click", function(){
+			$("input").addClass("errorInput");
+		})
+	
 		//comentarios
-        $("#nuevoComentario").live("click", function(){
+        $("#comentNuevo").live("submit", function(event){
+          event.preventDefault();
        	  if($("#nombre").val() != "" && $("#comentario").val() != ""){
 		      var data = "";
 		      $.ajax({
-		        url: "core/nuevo-coment.php",
+		        url: "/core/nuevo-coment.php",
 		        type: "POST",
 		        data: "texto="+$("#comentario").val()+
 		        "&id_tutorial="+$("#tutorialComent").val()+
+		        "&email="+$("#email").val()+
 		        "&user="+$("#nombre").val(),
 		        async: true,
 		        dataType: "json",
@@ -89,8 +95,6 @@ if(isset($_GET['web'])){
 		        success: function(response){
 		          if(response.val){ 
 		          	$("#comentarios").toggle(500);
-		            //$("#success, #error").hide();
-		            //$("#success").text(response.mensaje).fadeIn();
 
 		            data += "<div class='comentario center'><div class='message'>";
 		            data += "<span class='label'>Usuario: "+response.usuario+". Fecha: "+response.created+"</span>";
@@ -101,11 +105,9 @@ if(isset($_GET['web'])){
 		            $("#notComment").hide();
 		            $("#comentario").val("");
 		            $("#nombre").val("");
-		            $(".success").fadeIn(500).append("Comentario enviado");
+		            $(".success").fadeIn(500).append(response.mensaje);
 		             
 		          }else{
-		            /*$("#success, #error").hide();
-		            $("#error").text(response.mensaje).fadeIn();*/
 		            alert(response.mensaje);
 		          }
 		        }

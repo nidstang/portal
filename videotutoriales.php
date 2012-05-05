@@ -9,10 +9,10 @@ $comentarioObject = new Comentario();
 
 ?>
 <section id="coments" class="box" style="width:760px">
-	<?php 
+	<?php
 		$cat = $helper->getNombreCategoria($_GET['cat']);
 
-		if(!$tutorialObject->getById($_GET['id'])){
+		if(!isset($_GET['id']) || !$tutorialObject->getById($_GET['id'])){
 			echo '<strong>Tutorial not found</strong>';
 			echo '<div><a href="'.$uri->path("ver-tutoriales/".$_GET['cat']).'"';
 			echo '" class="button pequeno verde menu" style="margin-top:10px">';
