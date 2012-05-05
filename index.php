@@ -235,9 +235,9 @@ if(isset($_GET['web'])){
 		{
 			case 'home':
 				echo '
-					<section style="margin-top:10px">
-						<p style="font-size:20px"><strong>Ultimas noticias desde nuestro twitter</strong></p>
-						<article id="twits">
+					<section style="margin-top:10px" class="box">
+						<p style="font-size:20px" class="success"><strong>Ultimas noticias desde nuestro twitter</strong></p>
+						<article id="twits" class="message">
 							<div id="info">
 								Cargando ultimas noticias...
 							</div>

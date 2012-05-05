@@ -97,7 +97,7 @@ input, textarea
 		min-height:434px;
 	padding:10px;
 	padding-bottom: 20px;
-	width:700px;
+	width:760px;
 }
 .box2
 {
@@ -136,16 +136,6 @@ input, textarea
 .video
 {
 	border:solid 1px #e7e6e6;
-}
-#twits
-{
-	border:dotted 5px #002B40;
-	border-bottom:0;
-	margin-left:auto;
-	margin-right:auto;
-	height:456px;
-	padding:10px;
-	width:700px;
 }
 #redes
 {
