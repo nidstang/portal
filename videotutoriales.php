@@ -30,21 +30,26 @@ $comentarioObject = new Comentario();
 	</div>
 
 	<fieldset class="center">
+	<form id="comentNuevo">
 		<legend><strong>Dejanos tus comentarios</strong></legend>
 		<div class="success" style="display:none"></div>
 		<div id="comentarios">
 			<label>Nombre</label>
-			<div><input type="text" id="nombre" /></div>
+			<div><input type="text" id="nombre" required maxlength="10" /></div>
+			<label>Email</label>
+			<div><input type="email" id="email" required /></div>
+			<p style="margin-bottom:5px">(*No revelaremos tus datos a nadie)</p>
 			<label>Comentario</label>
-			<div><textarea id="comentario"></textarea></div>
+			<div><textarea id="comentario" required></textarea></div>
 			<input type="hidden" id="tutorialComent" value="<?php echo $tutorialObject->id_tutorial ?>" />
 			<div>
-				<button id="nuevoComentario" class="button pequeno verde menu" style="margin-top:10px;margin-right:0">
+				<button type="submit" id="nuevoComentario" class="button pequeno verde menu" style="margin-top:10px;margin-right:0">
 					<span>Enviar</span>
 				</button>
 			</div>
 			<div id="loading" class="center"></div>
 		</div>
+	</form>
 		<hr>
 		<div id="comentariosView">
 			<?php

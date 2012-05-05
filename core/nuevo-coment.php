@@ -2,11 +2,13 @@
 require_once("models/Comentario_model.php");
 $coment = new Comentario();
 
+
 if(!empty($_POST['texto'])){
 	if(!strpos($_POST['texto'], "<") && !strpos($_POST['texto'], ">")){
 		$newComent = array(
 		'texto' => strip_tags($_POST['texto']),
 		'id_tutorial' => $_POST['id_tutorial'],
+		'email' => $_POST['email'],
 		'usuario' => $_POST['user']
 
 		);
