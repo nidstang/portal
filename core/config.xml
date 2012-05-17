@@ -1,0 +1,14 @@
+<?xml version='1.0'?>
+
+<!-- Connection BD -->
+<database>
+	<connection>
+		<typeBD value="mysql" />
+		<server value="localhost" />
+		<user value="root" />
+		<password value="" />
+	</connection>
+	<selectDB>
+		<db value="dpstation" />
+	</selectDB>
+</database>
