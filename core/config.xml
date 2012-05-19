@@ -1,7 +1,7 @@
 <?xml version='1.0'?>
 
 <!-- Connection BD -->
-<database>
+<spoon>
 	<connection>
 		<typeBD value="mysql" />
 		<server value="localhost" />
@@ -11,4 +11,11 @@
 	<selectDB>
 		<db value="dpstation" />
 	</selectDB>
-</database>
+
+	<path>
+		<pathDefault value="/" />
+		<pathLinux value="/opt/lampp/htdocs/portal/core" />
+		<pathWindows value="F:\Archivos de programa\xampp\xampp\htdocs\prueba2\portal\core" />
+	</path>
+
+</spoon>

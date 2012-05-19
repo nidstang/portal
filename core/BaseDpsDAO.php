@@ -1,7 +1,7 @@
 <?php
 require_once('init.php');
 
-class BaseDpsDAO
+class BaseDpsDAO extends Init
 {
 	private $em;
 	private $entity;
@@ -10,14 +10,14 @@ class BaseDpsDAO
 		if($entityArg != null){
 			$this->entity = $entityArg;
 		}
-		$init = new Init();
+		$data = $this->getData();
 
 		$this->em = new SpoonDatabase(
-			$init->data['type'], 
-			$init->data['server'], 
-			$init->data['user'],
-			$init->data['pass'],
-			$init->data['db']
+			$data['type'], 
+			$data['server'], 
+			$data['user'],
+			$data['pass'],
+			$data['db']
 		);
 	}
 
@@ -58,7 +58,7 @@ class ComentarioDAO extends BaseDpsDAO
 		foreach ($data as $key => $value) {
 			$comentarioDTO = new ComentarioDTO();
 			$comentarioDTO->setId($value['id_comentario']);
-			$comentarioDTO->setComentario($value['comentario']);
+			$comentarioDTO->setComentario($value['texto']);
 
 			$comentarioDTOList->add($comentarioDTO);
 		}
