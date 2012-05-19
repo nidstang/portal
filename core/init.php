@@ -26,7 +26,7 @@ class Init
 		return $path;
 	}
 
-	protected function getData(){
+	public function getData(){
 		$this->dataXML = simplexml_load_file("config.xml");
 
 		$this->data = array(

@@ -10,7 +10,8 @@ class BaseDpsDAO extends Init
 		if($entityArg != null){
 			$this->entity = $entityArg;
 		}
-		$data = $this->getData();
+		$data = new Init();
+		$data = $data->getData();
 
 		$this->em = new SpoonDatabase(
 			$data['type'], 
@@ -29,7 +30,7 @@ class BaseDpsDAO extends Init
 		$this->entity = $entityArg;
 	}
 
-	private function getEntity(){
+	protected function getEntity(){
 		return $this->entity;
 	}
 
@@ -40,37 +41,3 @@ class BaseDpsDAO extends Init
 	}
 
 }
-
-require_once("ArrayList.php");
-require_once("ComentarioDTO.php");
-
-class ComentarioDAO extends BaseDpsDAO
-{
-	function __construct(){
-		parent::__construct('comentario');
-	}
-
-	function getAllComentarios(){
-		$comentarioDTOList = new ArrayList();
-
-		$data = $this->findAll();
-
-		foreach ($data as $key => $value) {
-			$comentarioDTO = new ComentarioDTO();
-			$comentarioDTO->setId($value['id_comentario']);
-			$comentarioDTO->setComentario($value['texto']);
-
-			$comentarioDTOList->add($comentarioDTO);
-		}
-
-		return $comentarioDTOList;
-
-	}
-}
-
-$objeto = new ComentarioDAO();
-$comentarios = $objeto->getAllComentarios();
-
-Spoon::dump($comentarios, false);
-
-?>
