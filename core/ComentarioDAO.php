@@ -1,38 +1,10 @@
 <?php
-require_once("BaseDpsDAO.php");
-require_once("ArrayList.php");
-require_once("ComentarioDTO.php");
-
-class ComentarioDAO extends BaseDpsDAO
+/**
+* ComentarioDAO interface
+*/
+interface ComentarioDAO
 {
-	function __construct(){
-		parent::__construct('comentario');
-	}
+	public function getAllComentarios();
 
-	function getAllComentarios(){
-		$comentarioDTOList = new ArrayList();
-
-		$data = $this->findAll();
-
-		foreach ($data as $key => $value) {
-			$comentarioDTO = new ComentarioDTO();
-			$comentarioDTO->setId($value['id_comentario']);
-			$comentarioDTO->setComentario($value['texto']);
-
-			$comentarioDTOList->add($comentarioDTO);
-		}
-
-		return $comentarioDTOList;
-
-	}
-
-	function getAllComentariosByTutorial($id_tutorial){
-		$query = "SELECT * FROM ". parent::getEntity() . " WHERE id_tutorial = :tutorial";
-
-	}
+	public function getAllComentariosByTutorial($id_turoial);
 }
-
-$objeto = new ComentarioDAO();
-$comentarios = $objeto->getAllComentarios();
-
-Spoon::dump($comentarios, false);
