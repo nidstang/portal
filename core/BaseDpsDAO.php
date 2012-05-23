@@ -1,7 +1,7 @@
 <?php
 require_once('init.php');
 
-class BaseDpsDAO extends Init
+class BaseDpsDAO
 {
 	private $em;
 	private $entity;

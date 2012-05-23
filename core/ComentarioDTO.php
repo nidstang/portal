@@ -4,6 +4,8 @@
 */
 class ComentarioDTO
 {
+	const IDIOMA = "es";
+
 	private $id_comentario;
 	private $id_tutorial;
 	private $comentario;
@@ -52,7 +54,7 @@ class ComentarioDTO
 	}
 
 	public function getCreated(){
-		return $this->created;
+		return SpoonDate::getTimeAgo($this->created,self::IDIOMA);
 	}
 
 	public function setCreated($createdArg){

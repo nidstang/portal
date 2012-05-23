@@ -174,6 +174,9 @@ class Spoon
 		$classes['spoonthumbnail'] = 'thumbnail/thumbnail.php';
 		$classes['spoonxmlrpcclient'] = 'xmlrpc/client.php';
 
+		//clases propias de DPS
+		$classes['spoonhelper'] = 'helper/helper.php';
+
 		// path
 		$path = dirname(realpath(__FILE__));
 

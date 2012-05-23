@@ -7,12 +7,13 @@ $comentariosDTOList = $service->getAllComments();
 
 foreach ($comentariosDTOList as $key => $comentarioDTO) {
 	echo "ID: ".$comentarioDTO->getId()."<br />";
-	echo "Uusuarios: ".$comentarioDTO->getUsuario()."<br />";
+	echo "Usuarios: ".$comentarioDTO->getUsuario()."<br />";
+	echo "Fecha: ".$comentarioDTO->getCreated()."<br />";
 	echo "Comentario: ".$comentarioDTO->getComentario()."<br /><hr>";
 }
 
 
-//Spoon::dump($datos, false);
+//Spoon::dump($comentariosDTOList[0]->getCreated(), false);
 
 
 
