@@ -88,17 +88,34 @@ input, textarea
 }
 .box
 {
-	border:solid 2px #002B40;
-	border-radius: 5px;
-	background-color: #e7e6e6;
-	margin-top:20px;
-	margin-left:auto;
-	margin-right:auto;
-		min-height:434px;
+	background:#002B40;
 	padding:10px;
-	padding-bottom: 20px;
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
+	-ms-border-radius:8px;
+	-o-border-radius:8px;
+	border-radius:8px;
+	-webkit-box-shadow:#2f1f11 0px 11px 40px -12px;
+	-moz-box-shadow:#2f1f11 0px 11px 40px -12px;
+	box-shadow:#2f1f11 0px 11px 40px -12px;
+}
+.box-inner{
+
+background-color: #e7e6e6;
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+-ms-border-radius: 8px;
+-o-border-radius: 8px;
+border-radius: 8px;
+}
+
+.span700{
+	width:700px;
+}
+.span760{
 	width:760px;
 }
+
 .box2
 {
 	border:solid 2px #002B40;
@@ -109,7 +126,6 @@ input, textarea
 	margin-right:auto;
 	padding:10px;
 	padding-bottom: 20px;
-	width:700px;
 }
 .box3
 {
@@ -454,7 +470,7 @@ h2{
      font-size:18px;
 }
 
-fieldset { border:1px solid green; width:760px; margin-top:10px; }
+fieldset { border-top:2px solid green; width:760px; margin-top:10px; }
 
 legend {
   padding: 0.2em 0.5em;

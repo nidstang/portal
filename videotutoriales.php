@@ -8,7 +8,8 @@ $tutorialObject = new Tutorial();
 $comentarioObject = new Comentario();
 
 ?>
-<section id="coments" class="box" style="width:760px">
+<section id="coments" class="box center span700" style="width:760px">
+	<div class="box-inner">
 	<?php
 		$cat = $helper->getNombreCategoria($_GET['cat']);
 
@@ -24,7 +25,7 @@ $comentarioObject = new Comentario();
 	<iframe width="760" height="400" src="<?php echo $helper->getUrlEmbebed($tutorialObject->video) ?>" frameborder="0" allowfullscreen>
 	</iframe>
 	<div>
-		<a href="<?php echo 'index.php?web=ver-tutoriales&cat='.$_GET['cat'].'' ?>" class="button pequeno verde menu" style="margin-top:10px;float:right">
+		<a href="<?php echo 'index.php?web=ver-tutoriales&cat='.$_GET['cat'].'' ?>" class="button pequeno verde menu" style="margin-top:10px;margin-right:10px;float:right">
 			<span>Volver a <?php echo $cat ?></span>
 		</a>
 	</div>
@@ -69,4 +70,5 @@ $comentarioObject = new Comentario();
 		</div>
 	</fieldset>
 <?php } ?>
+</div>
 </section>
