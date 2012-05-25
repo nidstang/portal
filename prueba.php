@@ -1,4 +1,5 @@
-<?php  
+<?php
+//echo get_include_path();
 require_once("core/DPService.php");
 
 

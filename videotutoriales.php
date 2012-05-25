@@ -3,12 +3,18 @@ require_once("core/models/Tutoriales_model.php");
 require_once("core/models/Comentario_model.php");
 require_once("core/vendor/Utiles.php");
 
+require_once("core/DPService.php");
+
+
+$service = new DPService();
+
 $helper = new Utiles();
 $tutorialObject = new Tutorial();
 $comentarioObject = new Comentario();
 
 ?>
-<section id="coments" class="box" style="width:760px">
+<section id="coments" class="box center span700" style="width:760px">
+	<div class="box-inner">
 	<?php
 		$cat = $helper->getNombreCategoria($_GET['cat']);
 
@@ -21,10 +27,10 @@ $comentarioObject = new Comentario();
 		}else{
 	?>
 
-	<iframe width="760" height="400" src="<?php echo $helper->getUrlEmbebed($tutorialObject->video) ?>" frameborder="0" allowfullscreen>
-	</iframe>
+	<!--<iframe width="760" height="400" src="<?php echo $helper->getUrlEmbebed($tutorialObject->video) ?>" frameborder="0" allowfullscreen>
+	</iframe>-->
 	<div>
-		<a href="<?php echo 'index.php?web=ver-tutoriales&cat='.$_GET['cat'].'' ?>" class="button pequeno verde menu" style="margin-top:10px;float:right">
+		<a href="<?php echo 'index.php?web=ver-tutoriales&cat='.$_GET['cat'].'' ?>" class="button pequeno verde menu" style="margin-top:10px;margin-right:10px;float:right">
 			<span>Volver a <?php echo $cat ?></span>
 		</a>
 	</div>
@@ -50,23 +56,36 @@ $comentarioObject = new Comentario();
 			<div id="loading" class="center"></div>
 		</div>
 	</form>
-		<hr>
-		<div id="comentariosView">
+		<hr style="border:solid 3px #002B40">
+		<div id="comentariosView" class="left">
 			<?php
-				if($comentarios = $comentarioObject->get($_GET['id'])){
+				/*if($comentarios = $comentarioObject->get($_GET['id'])){
 					foreach($comentarios as $coment)
 					{
-						echo '<div class="comentario center"><div class="message">';
-						echo '<span class="label">Usuario: '.$coment['usuario'].'';
-						echo ' Fecha: '.$coment['created'].'</span>';
+						echo '<hr><div style="padding:10px"><div style="background:#D1EED1;border:2px solid #BFE7BF;padding:5px">';
+						echo '<div style="float:right;">'.$coment['created'].'</div>';
+						echo '<b>'.$coment['usuario'].':</b><br />';
 						echo $coment['texto'];
 						echo '</div></div>';
 					}
 				}else{
 					echo '<div id="notComment">No hay ningun comentario</div>';
+				}*/
+				$comentariosDTOList = $service->getAllCommentsByTutorial($_GET['id']);
+
+				if($comentariosDTOList != null){
+					foreach ($comentariosDTOList as $key => $comentarioDTO) {
+						echo '<hr><div style="padding:10px"><div style="background:#D1EED1;border:2px solid #BFE7BF;padding:5px">';
+						echo '<div style="float:right;">'.$comentarioDTO->getCreated().'</div>';
+						echo '<b>'.$comentarioDTO->getUsuario().':</b><br />';
+						echo $comentarioDTO->getComentario();
+						echo '</div></div>';
+					}
 				}
+
 			?>
 		</div>
 	</fieldset>
 <?php } ?>
+</div>
 </section>

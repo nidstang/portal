@@ -5,7 +5,7 @@ class Init
 	private $dataXML;
 
 	public function Init(){
-		$this->dataXML = simplexml_load_file("config.xml");
+		$this->dataXML = simplexml_load_file("core/config.xml");
 	}
 
 	public function getPath($type='Default'){
@@ -27,8 +27,6 @@ class Init
 	}
 
 	public function getData(){
-		$this->dataXML = simplexml_load_file("config.xml");
-
 		$this->data = array(
 			'type' => $this->dataXML->connection->typeBD['value'],
 			'server' => $this->dataXML->connection->server['value'],
@@ -42,6 +40,7 @@ class Init
 }
 
 $init = new Init();
+
 
 define('PATH_LIBRARY', $init->getPath('Windows'));
 
