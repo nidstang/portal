@@ -23,11 +23,23 @@ class DPService
 
 
 	public function getAllComments(){
-		return $this->getComentarioDAO()->getAllComentarios();
+		$list = $this->getComentarioDAO()->getAllComentarios();
+
+		if($list->isNull()){
+			return $list->toArray();
+		}else{
+			return null;
+		}
 	}
 
 	public function getAllCommentsByTutorial($id){
 		$id = (int)$id;
-		return $this->getComentarioDAO()->getAllComentariosByTutorial($id);
+		$list = $this->getComentarioDAO()->getAllComentariosByTutorial($id);
+
+		if($list->isNull()){
+			return $list->toArray();
+		}else{
+			return null;
+		}
 	}
 }

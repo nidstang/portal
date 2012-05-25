@@ -27,7 +27,7 @@ class ComentarioDAOImpl extends BaseDpsDAO implements ComentarioDAO
 			$comentarioDTOList->add($comentarioDTO);
 		}
 
-		return $comentarioDTOList->getList();
+		return $comentarioDTOList;
 
 	}
 
@@ -50,7 +50,7 @@ class ComentarioDAOImpl extends BaseDpsDAO implements ComentarioDAO
 			$comentarioDTOList->add($comentarioDTO);
 		}
 
-		return $comentarioDTOList->getList();
+		return $comentarioDTOList;
 
 	}
 }

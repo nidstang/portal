@@ -11,16 +11,24 @@ class ArrayList
 		$list = array();
 	}
 
-	function setList($listArg){
-		$this->list[] = $listArg;
+	function add($item){
+		$this->list[] = $item;
 	}
 
-	function getList(){
+	function toArray(){
 		return $this->list;
 	}
 
-	function add($object){
-		$this->setList($object);
+	function size(){
+		return count($this->list);
+	}
+
+	function isNull(){
+		if($this->size() < 0){
+			return false;
+		}else{
+			return true;
+		}
 	}
 }
 

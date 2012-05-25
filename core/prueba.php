@@ -3,7 +3,11 @@ require_once("DPService.php");
 
 
 $service = new DPService();
+
 $comentariosDTOList = $service->getAllComments();
+
+if($comentariosDTOList != null){
+echo "Vienen datitos";
 
 foreach ($comentariosDTOList as $key => $comentarioDTO) {
 	echo "ID: ".$comentarioDTO->getId()."<br />";
@@ -12,7 +16,7 @@ foreach ($comentariosDTOList as $key => $comentarioDTO) {
 	echo "Comentario: ".$comentarioDTO->getComentario()."<br /><hr>";
 }
 
-
+}
 //Spoon::dump($comentariosDTOList[0]->getCreated(), false);
 
 

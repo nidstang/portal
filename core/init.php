@@ -43,7 +43,7 @@ class Init
 
 $init = new Init();
 
-define('PATH_LIBRARY', $init->getPath('Linux'));
+define('PATH_LIBRARY', $init->getPath('Windows'));
 
 set_include_path(get_include_path() . PATH_SEPARATOR . PATH_LIBRARY);
 
