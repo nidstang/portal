@@ -6,7 +6,8 @@ $helper = new Utiles();
 
 ?>
 <p style="font-weigh:bold"> <?php //echo $_GET['cat'] ?> </p>
-<section id="tutoriales" class="box2">
+<section id="tutoriales" class="box span760 center">
+	<div class="box-inner">
 	<p>Tutoriales de <strong><?php echo $helper->getNombreCategoria($_GET['cat']); ?></strong></p>
 	<article class="video">
 	<?php 
@@ -54,5 +55,6 @@ $helper = new Utiles();
 	}
 
 	?>
+	</div>
 </section>
 
