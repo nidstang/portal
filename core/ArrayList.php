@@ -24,7 +24,7 @@ class ArrayList
 	}
 
 	function isNull(){
-		if($this->size() < 0){
+		if($this->size() <= 0){
 			return false;
 		}else{
 			return true;

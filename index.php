@@ -20,6 +20,7 @@ if(isset($_GET['web'])){
 
 	<script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/js/twitter.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/miniNotification.js" type="text/javascript" charset="utf-8"></script>
 
 
 
@@ -28,6 +29,12 @@ if(isset($_GET['web'])){
 			if(localStorage.getItem('local') == 'recogido'){
 				$("#share").addClass('disabled');
 			}
+
+			$('iframe').each(function(){
+				var url = $(this).attr("src")
+				$(this).attr("src",url+"?wmode=transparent")
+			}
+			);
 
 			$(".thumbnail").fadeIn(1000);
 			enlaces = function(enlace)
@@ -94,7 +101,10 @@ if(isset($_GET['web'])){
 	              },
 		        success: function(response){
 		          if(response.val){ 
-		          	$("#comentarios").toggle(500);
+		          	$("fieldset").toggle(500,function(){
+		          		$("#comentario").val("");
+		            	$("#nombre").val("");
+		          	});
 
 		            data += "<div style='padding:10px'><div class='coment-inner'>";
 		            data += "<div style='float:right;'>"+response.created+"</div>";
@@ -102,11 +112,11 @@ if(isset($_GET['web'])){
 		            data += response.texto;
 		            data += "</div></div>";
 
-		            $("#comentariosView #countComent").before(data);
+		            $("#comentariosView #pushComment").before(data);
 		            $("#notComment").hide();
-		            $("#comentario").val("");
-		            $("#nombre").val("");
-		            $(".success").fadeIn(500).append(response.mensaje);
+		            //$(".success").fadeIn(500).append(response.mensaje);
+		            $("#notification").html("<p>"+response.mensaje+"</p>");
+		            $("#notification").miniNotification();
 		             
 		          }else{
 		            alert(response.mensaje);
@@ -271,5 +281,6 @@ if(isset($_GET['web'])){
 	<footer>
 		&copy; DPSTATION<br />Developed by Poltero<br />Desing by David
 	</footer>
+	<div id="notification"></div>
 </body>
 </html>

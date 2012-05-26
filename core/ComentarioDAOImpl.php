@@ -38,16 +38,18 @@ class ComentarioDAOImpl extends BaseDpsDAO implements ComentarioDAO
 
 		$results = $this->getEntityManager()->getRecords($query, array('tutorial' => $id_tutorial));
 
-		foreach ($results as $key => $value) {
-			$comentarioDTO = new ComentarioDTO();
-			$comentarioDTO->setId($value['id_comentario']);
-			$comentarioDTO->setTutorial($value['id_tutorial']);
-			$comentarioDTO->setComentario($value['texto']);
-			$comentarioDTO->setUsuario($value['usuario']);
-			$comentarioDTO->setEmail($value['email']);
-			$comentarioDTO->setCreated($value['created']);
+		if($results != null){
+			foreach ($results as $key => $value) {
+				$comentarioDTO = new ComentarioDTO();
+				$comentarioDTO->setId($value['id_comentario']);
+				$comentarioDTO->setTutorial($value['id_tutorial']);
+				$comentarioDTO->setComentario($value['texto']);
+				$comentarioDTO->setUsuario($value['usuario']);
+				$comentarioDTO->setEmail($value['email']);
+				$comentarioDTO->setCreated($value['created']);
 
-			$comentarioDTOList->add($comentarioDTO);
+				$comentarioDTOList->add($comentarioDTO);
+			}
 		}
 
 		return $comentarioDTOList;

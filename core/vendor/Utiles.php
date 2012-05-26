@@ -89,7 +89,7 @@ class Utiles
 	public function getUrlEmbebed($url){
 		preg_match("/v=([^&]+)/i", $url, $matches);
 		$id = $matches[1];
-		$video = "http://www.youtube.com/v/{id}&hl=en_US&fs=1&";
+		$video = "http://www.youtube.com/embed/{id}";
 
 		$video = str_replace('{id}', $id, $video);
 

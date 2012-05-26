@@ -54,8 +54,10 @@ $tutorialObject = new Tutorial();
 			<div id="loading" class="center"></div>
 		</div>
 	</form>
-		<hr style="border:solid 3px #002B40">
+	</fieldset>
+		<hr style="border:solid 3px #002B40;margin-top:50px">
 		<div id="comentariosView" class="left">
+			<div id="pushComment"></div>
 			<?php
 				/*if($comentarios = $comentarioObject->get($_GET['id'])){
 					foreach($comentarios as $coment)
@@ -71,12 +73,12 @@ $tutorialObject = new Tutorial();
 				}*/
 				$comentariosDTOList = $service->getAllCommentsByTutorial($_GET['id']);
 
-				echo "<p style='padding:5px' id='countComent'>". $comentariosDTOList->size();
-				echo " personas nos han dejado sus comentarios</p>";
-
-				//$comentariosDTOList = $comentariosDTOList->toArray();
-
 				if($comentariosDTOList != null){
+					echo "<p style='padding:5px' id='countComent'>". $comentariosDTOList->size();
+					echo " personas nos han dejado sus comentarios</p>";
+
+					//$comentariosDTOList = $comentariosDTOList->toArray();
+
 					foreach ($comentariosDTOList->toArray() as $key => $comentarioDTO) {
 						echo '<hr><div style="padding:10px"><div class="coment-inner">';
 						echo '<div style="float:right;">'.$comentarioDTO->getTimeCreated().'</div>';
@@ -84,11 +86,12 @@ $tutorialObject = new Tutorial();
 						echo $comentarioDTO->getComentario();
 						echo '</div></div>';
 					}
+				}else{
+					echo '<div id="notComment">No hay ningun comentario</div>';
 				}
 
 			?>
 		</div>
-	</fieldset>
 <?php } ?>
 </div>
 </section>
