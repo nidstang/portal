@@ -54,6 +54,10 @@ class ComentarioDTO
 	}
 
 	public function getCreated(){
+		return $this->created;
+	}
+
+	public function getTimeCreated(){
 		return SpoonDate::getTimeAgo($this->created,self::IDIOMA);
 	}
 

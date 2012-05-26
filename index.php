@@ -96,12 +96,13 @@ if(isset($_GET['web'])){
 		          if(response.val){ 
 		          	$("#comentarios").toggle(500);
 
-		            data += "<div class='comentario center'><div class='message'>";
-		            data += "<span class='label'>Usuario: "+response.usuario+". Fecha: "+response.created+"</span>";
+		            data += "<div style='padding:10px'><div class='coment-inner'>";
+		            data += "<div style='float:right;'>"+response.created+"</div>";
+		            data += "<b>"+response.usuario+":</b><br />";
 		            data += response.texto;
 		            data += "</div></div>";
 
-		            $("#comentariosView").before(data);
+		            $("#comentariosView #countComent").before(data);
 		            $("#notComment").hide();
 		            $("#comentario").val("");
 		            $("#nombre").val("");

@@ -5,7 +5,7 @@ class Init
 	private $dataXML;
 
 	public function Init(){
-		$this->dataXML = simplexml_load_file("core/config.xml");
+		$this->dataXML = simplexml_load_file("config.xml");
 	}
 
 	public function getPath($type='Default'){
@@ -42,11 +42,6 @@ class Init
 $init = new Init();
 
 
-define('PATH_LIBRARY', $init->getPath('Windows'));
-
-set_include_path(get_include_path() . PATH_SEPARATOR . PATH_LIBRARY);
-
-require_once 'spoon/spoon.php';
 
 
 ?>

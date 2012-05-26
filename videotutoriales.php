@@ -1,6 +1,5 @@
 <?php
 require_once("core/models/Tutoriales_model.php");
-require_once("core/models/Comentario_model.php");
 require_once("core/vendor/Utiles.php");
 
 require_once("core/DPService.php");
@@ -10,7 +9,6 @@ $service = new DPService();
 
 $helper = new Utiles();
 $tutorialObject = new Tutorial();
-$comentarioObject = new Comentario();
 
 ?>
 <section id="coments" class="box center span700" style="width:760px">
@@ -27,10 +25,10 @@ $comentarioObject = new Comentario();
 		}else{
 	?>
 
-	<!--<iframe width="760" height="400" src="<?php echo $helper->getUrlEmbebed($tutorialObject->video) ?>" frameborder="0" allowfullscreen>
-	</iframe>-->
+	<iframe width="760" height="400" src="<?php echo $helper->getUrlEmbebed($tutorialObject->video) ?>" frameborder="0" allowfullscreen>
+	</iframe>
 	<div>
-		<a href="<?php echo 'index.php?web=ver-tutoriales&cat='.$_GET['cat'].'' ?>" class="button pequeno verde menu" style="margin-top:10px;margin-right:10px;float:right">
+		<a href="<?php echo $uri->path("ver-tutoriales/".$_GET['cat']."") ?>" class="button pequeno verde menu" style="margin-top:10px;margin-right:10px;float:right">
 			<span>Volver a <?php echo $cat ?></span>
 		</a>
 	</div>
@@ -73,10 +71,15 @@ $comentarioObject = new Comentario();
 				}*/
 				$comentariosDTOList = $service->getAllCommentsByTutorial($_GET['id']);
 
+				echo "<p style='padding:5px' id='countComent'>". $comentariosDTOList->size();
+				echo " personas nos han dejado sus comentarios</p>";
+
+				//$comentariosDTOList = $comentariosDTOList->toArray();
+
 				if($comentariosDTOList != null){
-					foreach ($comentariosDTOList as $key => $comentarioDTO) {
-						echo '<hr><div style="padding:10px"><div style="background:#D1EED1;border:2px solid #BFE7BF;padding:5px">';
-						echo '<div style="float:right;">'.$comentarioDTO->getCreated().'</div>';
+					foreach ($comentariosDTOList->toArray() as $key => $comentarioDTO) {
+						echo '<hr><div style="padding:10px"><div class="coment-inner">';
+						echo '<div style="float:right;">'.$comentarioDTO->getTimeCreated().'</div>';
 						echo '<b>'.$comentarioDTO->getUsuario().':</b><br />';
 						echo $comentarioDTO->getComentario();
 						echo '</div></div>';

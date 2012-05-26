@@ -34,7 +34,7 @@ class ComentarioDAOImpl extends BaseDpsDAO implements ComentarioDAO
 	function getAllComentariosByTutorial($id_tutorial){
 		$comentarioDTOList = new ArrayList();
 
-		$query = "SELECT * FROM ". parent::getEntity() . " WHERE id_tutorial = :tutorial";
+		$query = "SELECT * FROM ". parent::getEntity() . " WHERE id_tutorial = :tutorial ORDER BY created DESC";
 
 		$results = $this->getEntityManager()->getRecords($query, array('tutorial' => $id_tutorial));
 
@@ -51,6 +51,25 @@ class ComentarioDAOImpl extends BaseDpsDAO implements ComentarioDAO
 		}
 
 		return $comentarioDTOList;
+
+	}
+
+	function addComentario($comentarioDTO){
+		try
+		{
+			$id = $this->getEntityManager()->insert(parent::getEntity(), array(
+					'id_tutorial' => $comentarioDTO->getTutorial(),
+					'texto' => $comentarioDTO->getComentario(),
+					'usuario' => $comentarioDTO->getUsuario(),
+					'email' => $comentarioDTO->getEmail(),
+					'created' => $comentarioDTO->getCreated()
+				)
+			);
+			return true;
+
+		}catch(Exception $e){
+			return false;
+		}
 
 	}
 }

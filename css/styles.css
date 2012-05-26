@@ -615,3 +615,13 @@ padding:10px;
 {
 	text-align:left;
 }
+.coment-inner{
+	background:#D1EED1;
+	border:2px solid #BFE7BF;
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
+	-ms-border-radius:8px;
+	-o-border-radius:8px;
+	border-radius:8px;
+	padding:5px;
+}

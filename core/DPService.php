@@ -37,9 +37,17 @@ class DPService
 		$list = $this->getComentarioDAO()->getAllComentariosByTutorial($id);
 
 		if($list->isNull()){
-			return $list->toArray();
+			return $list;
 		}else{
 			return null;
+		}
+	}
+
+	public function addComment($comentarioDTO){
+		if($this->getComentarioDAO()->addComentario($comentarioDTO)){
+			return true;
+		}else{
+			return false;
 		}
 	}
 }

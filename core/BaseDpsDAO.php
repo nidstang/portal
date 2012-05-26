@@ -1,5 +1,9 @@
 <?php
-require_once('init.php');
+define('PATH_LIBRARY', 'F:\Archivos de programa\xampp\xampp\htdocs\prueba2\portal\core');
+
+set_include_path(get_include_path() . PATH_SEPARATOR . PATH_LIBRARY);
+
+require_once 'spoon/spoon.php';
 
 class BaseDpsDAO
 {
@@ -10,15 +14,12 @@ class BaseDpsDAO
 		if($entityArg != null){
 			$this->entity = $entityArg;
 		}
-		$data = new Init();
-		$data = $data->getData();
-
 		$this->em = new SpoonDatabase(
-			$data['type'], 
-			$data['server'], 
-			$data['user'],
-			$data['pass'],
-			$data['db']
+			'mysql', 
+			'localhost', 
+			'root',
+			'',
+			'dpstation'
 		);
 	}
 
