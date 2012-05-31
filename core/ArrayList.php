@@ -18,6 +18,10 @@ class ArrayList
 	function toArray(){
 		return $this->list;
 	}
+	
+	function toJSON(){
+		return json_encode($this->lsit);	
+	}
 
 	function size(){
 		return count($this->list);
