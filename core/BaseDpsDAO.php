@@ -8,7 +8,7 @@ class BaseDpsDAO
 
 	function __construct($entityArg=null){
 		if($entityArg != null){
-			$this->entity = $entityArg;
+			$this->setEntity($entityArg);
 		}
 		global $config;
 		$this->em = new SpoonDatabase(
@@ -32,9 +32,15 @@ class BaseDpsDAO
 		return $this->entity;
 	}
 
-	protected function findAll(){
-		$query = 'SELECT * FROM '.$this->getEntity();
+	protected function findAll($fields=null){
+		if(!is_Null($fields) and is_array($fields)){
+			$listFields = implode(',', $fields);
 
+			$query = 'SELECT '.$listFields.' FROM '.$this->getEntity(); 
+		}else{
+			$query = 'SELECT * FROM '.$this->getEntity();
+		}
+		
 		return $this->getEntityManager()->getRecords($query);
 	}
 

@@ -6,8 +6,10 @@ require_once("ComentarioDAO.php");
 
 class ComentarioDAOImpl extends BaseDpsDAO implements ComentarioDAO
 {
+	const TABLE_DAO = "comentario";
+
 	function __construct(){
-		parent::__construct('comentario');
+		parent::__construct(self::TABLE_DAO);
 	}
 
 	function getAllComentarios(){
@@ -56,10 +58,10 @@ class ComentarioDAOImpl extends BaseDpsDAO implements ComentarioDAO
 
 	}
 
-	function addComentario($comentarioDTO){
+	function addComentario(ComentarioDTO $comentarioDTO){
 		try
 		{
-			$id = $this->getEntityManager()->insert(parent::getEntity(), array(
+			$this->getEntityManager()->insert(parent::getEntity(), array(
 					'id_tutorial' => $comentarioDTO->getTutorial(),
 					'texto' => $comentarioDTO->getComentario(),
 					'usuario' => $comentarioDTO->getUsuario(),
@@ -70,7 +72,7 @@ class ComentarioDAOImpl extends BaseDpsDAO implements ComentarioDAO
 			return true;
 
 		}catch(Exception $e){
-			return false;
+			return $e;
 		}
 
 	}
